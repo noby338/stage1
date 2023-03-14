@@ -1,5 +1,7 @@
 package note;
 
+import java.util.ResourceBundle;
+
 /**
  * java的使用技巧
  *
@@ -8,7 +10,7 @@ package note;
  */
 public class Tips {
     public static void main(String args[]) {
-        fn2();
+        fn4();
     }
 
     /**
@@ -52,5 +54,22 @@ public class Tips {
             //将数字转换为二进制字符串
             System.out.println(Integer.toBinaryString(s));
         }
+    }
+
+    /**
+     * 利用ResourceBundle读取类路径下的文件
+     */
+    static void fn3()  {
+        //路径的开始为类路径的根目录，获取的文件可省略扩展名
+        ResourceBundle file = ResourceBundle.getBundle("file");
+        System.out.println("file.getString(\"info\") = " + file.getString("info"));
+    }
+
+    /**
+     * 获取字节码文件路径
+     */
+    static void fn4()  {
+        String s = Tips.class.getClassLoader().getResource("").getPath();
+        System.out.println("s = " + s);
     }
 }

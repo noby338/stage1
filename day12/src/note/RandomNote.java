@@ -13,5 +13,6 @@ public class RandomNote {
             //获取[0,10)任意整数
             System.out.println("random.nextInt(10) = " + random.nextInt(10));
         }
+        System.out.println("random.nextBoolean() = " + random.nextBoolean());
     }
 }

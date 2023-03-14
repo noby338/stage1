@@ -2,6 +2,11 @@ package note.compare;
 
 import java.util.Arrays;
 
+/**
+ * @Description Comparable的使用
+ * @Author Noby
+ * @Date 2023/3/14 21:44
+ */
 public class ComparableNote {
     public static void main(String[] args) {
         Student[] students = {
@@ -32,14 +37,13 @@ class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student o) {
-        if (Integer.compare(o.chinese, this.chinese) == 0) {
-            if (Integer.compare(o.math,this.math) == 0) {
+        if (o.chinese == this.chinese) {
+            if (o.math == this.math) {
                 return this.name.compareTo(o.name);
             }
             return Integer.compare(o.math,this.math);
         }
         return Integer.compare(o.chinese, this.chinese);
-
     }
 
     public int getChinese() {

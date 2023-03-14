@@ -38,9 +38,6 @@ class Earphone implements Usb {
 }
 
 interface Usb {
-    /*
-    接口中的所有成员默认都由public修饰
-     */
     //region 成员变量
     /*
     接口中的所有属性都默认由 public static final 修饰(都是静态常量)

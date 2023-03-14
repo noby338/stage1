@@ -9,18 +9,18 @@ public class FinalNote {
         //endregion
 
         //region final修饰引用数据类型
-        final String[] names = new String[3];
-//        names = new String[4];//final修饰的引用数据类型其引用不可更改
-        names[0] = "noby";
-        names[0] = "kace";//引用里面的数据可以更改
+        final String[] NAMES = new String[3];
+//        NAMES = new String[4];//final修饰的引用数据类型其引用不可更改
+        NAMES[0] = "noby";
+        NAMES[0] = "kace";//引用里面的数据可以更改
         //endregion
         Teacher t = new Teacher();
-        t.say();//仍然可以使用父类的方法(可以继承)
+        t.say();//仍然可以使用父类的方法(可以继承，但不能重写)
     }
 }
 
 class Person {
-//    private final String name;//final修饰的成员变量必须赋初值
+    private final String NAME = "noby";//final修饰的成员变量必须赋初值
     public final void say() {
         System.out.println("说....");
     }

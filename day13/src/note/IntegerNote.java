@@ -23,8 +23,7 @@ public class IntegerNote {//包装类
         //region 静态方法和属性
         int i1 = Integer.parseInt("123");//字符串转换为int(字符串必须为十进制)
         Integer integer1 = Integer.valueOf("1234");//字符串转Integer
-        String string = Integer.toString(321);
-        ;//int转字符串
+        String string = Integer.toString(321);//int转字符串
         Integer integer2 = Integer.valueOf(1234);//int转Integer
 
         System.out.println("Integer.MAX_VALUE = " + Integer.MAX_VALUE);//最大的int数

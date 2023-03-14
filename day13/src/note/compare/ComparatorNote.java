@@ -3,6 +3,9 @@ package note.compare;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Comparator的使用
+ */
 public class ComparatorNote {
     public static void main(String[] args) {
         Person[] persons = {
@@ -16,9 +19,6 @@ public class ComparatorNote {
                 int age = Integer.compare(o1.getAge(), o2.getAge());
                 int name = o2.getName().compareTo(o1.getName());
                 if (age == 0) {
-                    if (name == 0) {
-                        return 0;
-                    }
                     return name;
                 }
                 return age;

@@ -1,4 +1,5 @@
 package note.designPatterns;
+
 /**
  * 1. 私有化构造方法
  * 2. 声明一个私有静态指向本类对象的引用，并赋值为null
@@ -6,10 +7,11 @@ package note.designPatterns;
  */
 class Full {//懒汉式设计模式方式一(优点：没有过早的进入内存 缺点：有线程安全问题，可能创建多个对象)
     private static Full instance;
+
     private Full() {
     }
 
-    public static Full getInstance () {
+    public static Full getInstance() {
         if (instance == null) {
             instance = new Full();
         }

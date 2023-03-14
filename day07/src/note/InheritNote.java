@@ -89,6 +89,9 @@ class Dog extends Animal {
 
 class Fish extends Animal {
     public String shapeOfScales;//鳞片的形状，鱼的特有属性，狗没有该属性
+    public void hoby(){
+        System.out.println("吐泡泡");
+    }
     public Fish() {
         super();
     }
@@ -98,7 +101,4 @@ class Fish extends Animal {
         this.shapeOfScales = shapeOfScales;
     }
 
-    public void hoby(){
-        System.out.println("吐泡泡");
-    }
 }

@@ -1,5 +1,9 @@
 package note.polymorphic;
 
+/**
+ * 多态的应用举例
+ * 在Person的work()方法中，只需传入参数File，即可执行File实现类的open()方法。
+ */
 public class PolymorphicNote2 {
     public static void main(String[] args) {
         Person noby = new Person();

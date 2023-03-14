@@ -1,10 +1,13 @@
 package note.designPatterns;
 
-public class DesignPatternsNote {//软件设计模式
+/**
+ * 软件的单例设计模式
+ */
+public class DesignPatternsNote {
     public static void main(String[] args) {
         //region 饱汉设计模式
-        Full fullInstance = Full.getInstance();
-        Full fullInstance1 = Full.getInstance();
+        Full3 fullInstance = Full3.getInstance();
+        Full3 fullInstance1 = Full3.getInstance();
         System.out.println(fullInstance == fullInstance1);//true
         //endregion
 

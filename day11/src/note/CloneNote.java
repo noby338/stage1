@@ -1,5 +1,8 @@
 package note;
 
+/**
+ * 浅拷贝和深拷贝
+ */
 public class CloneNote {
     public static void main(String[] args) throws CloneNotSupportedException {
         Person noby = new Person("noby", new Dog("lucky", new Toy("ball")));
@@ -17,7 +20,9 @@ public class CloneNote {
          */
         noby.name = "lily";
         System.out.println("july = " + july);
+        System.out.println("noby = " + noby);//noby也变为了lily，说明noby和july就是同一个对象
     }
+
 }
 
 class Person implements Cloneable {

@@ -1,7 +1,5 @@
 package pra;
 
-import sun.security.util.Length;
-
 import java.io.UnsupportedEncodingException;
 
 public class StringPra {

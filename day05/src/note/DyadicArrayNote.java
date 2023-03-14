@@ -1,4 +1,4 @@
-package note.arrray;
+package note;
 
 import java.util.Random;
 

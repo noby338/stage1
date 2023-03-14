@@ -9,8 +9,11 @@ public class MathNote {
         System.out.println("Math.PI = " + Math.PI);
         System.out.println("Math.pow(2,3) = " + Math.pow(2, 3));
         System.out.println("Math.sqrt(9) = " + Math.sqrt(9));
-        System.out.println("Math.random() = " + Math.random());//[0.0,1.0)之间的小数
+        System.out.println("Math.random() = " + Math.random());//[0.0,1.0)之间的小数 double
         System.out.println("Math.max(1,2) = " + Math.max(1, 2));
         System.out.println("Math.min(1,2) = " + Math.min(1, 2));
+        for (int i = 0; i < 100; i++) {
+            System.out.println((int)(Math.random()*100));
+        }
     }
 }

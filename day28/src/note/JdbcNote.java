@@ -36,9 +36,9 @@ public class JdbcNote {
         连接本地MySQL localhost：3306可省略
         jdbc:mysql:为协议
         ?后边拼接连接数据库时的参数
-        ?serverTimezone=UTC 表示设置时区，MySQL8里面要求必须设置时区，5里面可以省略
-        &useUnicode=true 表示是否设置Java程序连接数据库的编码：(该编码不同于数据库编码和IDE编码)
-        &characterEncoding=utf8 表示编码设置成utf-8
+        serverTimezone=UTC 表示设置时区，MySQL8里面要求必须设置时区，5里面可以省略
+        useUnicode=true 表示是否设置Java程序连接数据库的编码：(该编码不同于数据库编码和IDE编码)
+        characterEncoding=utf8 表示编码设置成utf-8
         useServerPrepStmts=true 为开启mysql的预编译功能
         */
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stage1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8", "root", "123");

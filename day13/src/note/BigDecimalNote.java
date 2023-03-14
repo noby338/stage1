@@ -1,8 +1,12 @@
 package note;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
-public class BigDecimalNote {//小数的精确计算
+/**
+ * 小数的精确计算
+ */
+public class BigDecimalNote {
     public static void main(String[] args) {
         //region 基本使用
         double d = 0.1234;
@@ -13,7 +17,7 @@ public class BigDecimalNote {//小数的精确计算
         System.out.println("bigDecimal.add(bigDecimal1) = " + bigDecimal.add(bigDecimal1));
         System.out.println("bigDecimal.subtract(bigDecimal1) = " + bigDecimal.subtract(bigDecimal1));
         System.out.println("bigDecimal.multiply(bigDecimal1) = " + bigDecimal.multiply(bigDecimal1));
-        System.out.println("bigDecimal.divide(2) = " + bigDecimal.divide(new BigDecimal(2)));
+        System.out.println("bigDecimal.divide(2) = " + bigDecimal.divide(new BigDecimal(3),2, RoundingMode.HALF_UP));
         //endregion
 
         //region 数据类型的转换

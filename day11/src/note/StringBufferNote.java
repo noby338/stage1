@@ -1,5 +1,9 @@
 package note;
 
+/**
+ * StringBuffer
+ * StringBuffer相比较StringBuilder线程安全，但速度相对较慢
+ */
 public class StringBufferNote {
     public static void main(String[] args) {
         //region 构造函数

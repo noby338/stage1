@@ -17,7 +17,7 @@ public class For_While_DoWhileNote {
          */
         //region for
         for(int i = 0;i < 10; i++) {
-            System.out.printf("这个数值是%d",i);
+            System.out.printf("这个数值是%d\n",i);
         }
         //endregion
 

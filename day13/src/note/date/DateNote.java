@@ -4,7 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateNote {//日期API
+/**
+ * Date的使用
+ */
+public class DateNote {
     public static void main(String[] args) throws ParseException {
         //region 构造函数
         Date date = new Date();//获取当前时间对象
@@ -17,6 +20,7 @@ public class DateNote {//日期API
         System.out.println("new Date().after(date) = " + new Date().after(date));//之后
         System.out.println("date.getDay() = " + date.getDay());//星期
         System.out.println("date.getTime() = " + date.getTime());//获取当前毫秒值
+        System.out.println("System.currentTimeMillis() = " + System.currentTimeMillis());
         //endregion
 
         //region 日期格式化器 date转换为字符串

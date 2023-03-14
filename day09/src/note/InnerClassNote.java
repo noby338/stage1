@@ -1,6 +1,8 @@
 package note;
-
-public class InnerClassNote {//内部类
+/**
+ * 内部类
+ */
+public class InnerClassNote {
 
     public static void main(String[] args) {
         Outer outer = new Outer();
@@ -50,11 +52,12 @@ class Outer {
         }
         //endregion
 
+        //region 在非静态内部类中能包含成员方法和成员变量
         public String name;
-
         public void methodInner() {
             System.out.println("静态内部类非静态方法");
         }
+        //endregion
     }
 }
 //endregion

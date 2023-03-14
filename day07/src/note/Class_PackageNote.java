@@ -6,7 +6,7 @@ package note;
 main()方法只能存在主类中(public修饰的类)*未解
 一个Java文件若有多个类，则在编译时会生成每个类的class文件
 */
-public class Class_PackageNote {//类和对象、类的封装
+public class Class_PackageNote {//类和对象、包的封装
 
     public static void main(String[] args) {
         //region 通过类创建对象
@@ -96,7 +96,7 @@ class Person {
     //endregion
 
     //region 构造函数可以根据成员方法随意排列组合，不同的排列组合为不同的构造函数，只有类中有该构造函数时
-    public Person(int age, String name) {//这和public Person(String name,int age)不同
+    public Person(int age, String name) {//这,int age)不同和public Person(String name
         this.name = name;
         this.age = age;
     }

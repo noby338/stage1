@@ -1,9 +1,12 @@
 package note;
 
+/**
+ * 静态属性和静态方法
+ */
 public class StaticNote {
     public static void main(String[] args) {
-        Circle d = new Circle();
-        d.r = 10;
+        Circle circle = new Circle();
+        circle.r = 10;
         //region 静态属性的值存储在类中，通过类名访问
         Circle.area = 100;//这里的Circle指的不是类，而是该类的字节码文件对象
         //endregion

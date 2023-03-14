@@ -1,8 +1,5 @@
 package pra;
 
-import sun.reflect.generics.scope.Scope;
-
-import javax.swing.text.Style;
 import java.util.Arrays;
 
 public class ComparablePra {

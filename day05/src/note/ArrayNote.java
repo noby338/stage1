@@ -1,4 +1,4 @@
-package note.arrray;
+package note;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -61,7 +61,7 @@ public class ArrayNote {//数组笔记
     private static void method5() {
         //region 彩票2 生成不重复的随机数后排序，数组索引巧用
         Random random = new Random();
-        int amount = 5;//数组的范围
+        int amount = 5;//数组的长度
         int randomMax = 20;//随机数的最大值
         int randomMin = 10;//随机数的最小值
         int[] randomArr = new int[randomMax + 1];//随机数数组，用于标记
@@ -80,6 +80,7 @@ public class ArrayNote {//数组笔记
                 index++;
             }
         }
+        System.out.println("Arrays.toString(randomArr) = " + Arrays.toString(randomArr));
         System.out.println("Arrays.toString(resArr) = " + Arrays.toString(resArr));
         //endregion
     }
@@ -101,6 +102,7 @@ public class ArrayNote {//数组笔记
                 nums[i++] = num;
             }
         }
+        System.out.println("Arrays.toString(nums) = " + Arrays.toString(nums));
         for (int i = 0; i < nums.length - 1; i++) {
             int max = nums[i];
             int index = i;
@@ -124,7 +126,7 @@ public class ArrayNote {//数组笔记
         for (int i = 0; i < array.length - 1; i++) {
             int min = array[i];
             int index = i;
-            for (int j = i; j < array.length; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (min > array[j]) {
                     min = array[j];
                     index = j;
@@ -165,6 +167,8 @@ public class ArrayNote {//数组笔记
                 index = i;
             }
         }
+
+        //该种方法会存在相同的数交换为0，（相同的数组元素交换为0，其他经过测试不为0，可能是ide的优化）
         array[0] = array[0] ^ array[index];
         array[index] = array[0] ^ array[index];
         array[0] = array[0] ^ array[index];
