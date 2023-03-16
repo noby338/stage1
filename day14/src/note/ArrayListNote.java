@@ -3,6 +3,11 @@ package note;
 import java.util.*;
 import java.util.function.Predicate;
 
+/**
+ * @Description ArrayList的基本用法
+ * @Author Noby
+ * @Date 2023/3/16 19:01
+ */
 public class ArrayListNote {
     public static void main(String[] args) {
         //region 创建
@@ -11,36 +16,49 @@ public class ArrayListNote {
         //endregion
 
         //region 成员方法
-        strings.add("str1");//添加
-        strings.add("str2");
-        strings.add("str3");
-        strings.add("str4");
-        strings.addAll(strings1);//将其他集合的全部元素加入到该集合
-        Collections.addAll(strings, "java", "hello", "learn");//通过Collections集合工具类添加所有元素
+        System.out.println("strings.add(\"str1\") = " + strings.add("str1"));//strings.add("str1") = true
+        System.out.println("strings.add(\"str2\") = " + strings.add("str2"));//strings.add("str2") = true
+        System.out.println("strings.add(\"str3\") = " + strings.add("str3"));//strings.add("str3") = true
+        System.out.println("strings.add(\"str5\") = " + strings.add("str5"));//strings.add("str5") = true
+        strings.add(3,"str4");//没有返回值
 
-        String s = strings.get(1);//获取元素
+        System.out.println("strings1.add(\"string1\") = " + strings1.add("string1"));//strings1.add("string1") = true
+        System.out.println("strings1.add(\"string2\") = " + strings1.add("string2"));//strings1.add("string2") = true
+        System.out.println("strings.addAll(strings1) = " + strings.addAll(strings1));//strings.addAll(strings1) = true
+        System.out.println("Collections.addAll(strings, \"java\", \"hello\", \"learn\") = " + Collections.addAll(strings, "java", "hello", "learn"));//Collections.addAll(strings, "java", "hello", "learn") = true
+        System.out.println("strings = " + strings);//strings = [str1, str2, str3, str4, string1, string2, java, hello, learn
 
-        int size = strings.size();//获取长度
+        System.out.println("strings.get(1) = " + strings.get(1));//strings.get(1) = str2
 
-        strings.remove(1);//删除指定索引的元素(仅当该集合有索引值时可用)
-        strings.remove(new Integer(1));//表示删除内容为1的元素
-        strings.remove("str1");//删除指定内容
-        strings.removeAll(strings1);//将该集合其他集合的全部元素删除
-        strings.removeIf(new Predicate<String>() {//遍历删除内容,底层调用的迭代器
+        System.out.println("strings.size() = " + strings.size());//strings.size() = 9
+
+        //ArrayList的remove方法可以删除指定内容的元素（传入Object），也可以删除指定索引的元素（传入0或正整数）
+        System.out.println("strings.remove(1) = " + strings.remove(1));//strings.remove(1) = str2
+        System.out.println("strings.remove(new Integer(1)) = " + strings.remove(new Integer(1)));//strings.remove(new Integer(1)) = false
+        System.out.println("strings.remove(\"str1\") = " + strings.remove("str1"));//strings.remove("str1") = true
+        System.out.println("strings.removeAll(strings1) = " + strings.removeAll(strings1));//strings.removeAll(strings1) = true
+        System.out.println("strings = " + strings);
+        //region 便利删除内容，底层调用迭代器
+        strings.removeIf(new Predicate<String>() {
             @Override
             public boolean test(String s) {
                 return s.contains("str");
             }
         });
+        //endregion
 
-        strings.clear();//清空集合
-        strings.isEmpty();//是否为空
+        System.out.println("strings = " + strings);
 
+
+        strings.clear();//清空集合，没有返回值
+        System.out.println("strings.isEmpty() = " + strings.isEmpty());//是否为空
         System.out.println(strings);//直接查看元素内容
         //endregion
 
-        //region 遍历集合
+        //region 遍历集合的三种方法
         //region Iterator迭代器 遍历集合
+        System.out.println("Collections.addAll(strings, \"str\",\"str2\",\"str3\",\"something\",\"something\",\"str4\") = " + Collections.addAll(strings, "str", "str2", "str3", "something","something", "str4"));
+        System.out.println("strings = " + strings);
         Iterator<String> iterator = strings.iterator();
         while (iterator.hasNext()) {
             String next = iterator.next();//获取当前元素后，将指针指向下一个元素
@@ -48,6 +66,7 @@ public class ArrayListNote {
                 iterator.remove();//通过迭代器删除元素
             }
         }
+        System.out.println("strings = " + strings);
         //endregion
 
         //region 增强for循环
@@ -64,7 +83,7 @@ public class ArrayListNote {
         //endregion
         //endregion
 
-        //region sort ArrayLi的排序
+        //region sort ArrayList的排序
         strings.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {

@@ -2,7 +2,11 @@ package note;
 
 import java.util.Collections;
 import java.util.TreeSet;
-
+/**
+ * @Description TreeSet的基本使用
+ * @Author Noby
+ * @Date 2023/3/17 0:11
+ */
 public class TreeSetNote {
     public static void main(String[] args) {
         /*
@@ -14,11 +18,9 @@ public class TreeSetNote {
         //endregion
 
         //region 相对于HashSet的不同
-        Collections.addAll(strings,"java","hello","world");
+        Collections.addAll(strings,"java","hello","world","a","c","b","d","f","e");
         System.out.println("strings = " + strings);//相对于HashSet，该集合有序(按照字典排序，而非存入顺序)
         //endregion
-
-
 
     }
 }

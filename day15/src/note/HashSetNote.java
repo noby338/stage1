@@ -3,6 +3,11 @@ package note;
 import java.util.Collections;
 import java.util.HashSet;
 
+/**
+ * @Description HashSet基本使用
+ * @Author Noby
+ * @Date 2023/3/17 0:08
+ */
 public class HashSetNote {
     public static void main(String[] args) {
         /*

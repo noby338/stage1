@@ -2,6 +2,11 @@ package note;
 
 import java.util.LinkedHashMap;
 
+/**
+ * @Description LinkedHashMap的基本使用
+ * @Author Noby
+ * @Date 2023/3/17 0:13
+ */
 public class LinkedHashMapNote {
     public static void main(String[] args) {
         LinkedHashMap<String, Object> noby = new LinkedHashMap<>();

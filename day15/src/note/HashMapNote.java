@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * @Description HashMap的基本使用
+ * @Author Noby
+ * @Date 2023/3/16 23:04
+ */
 public class HashMapNote {
     public static void main(String[] args) {
         /*
@@ -24,17 +28,17 @@ public class HashMapNote {
         noby.put("name","noby");//添加元素
         noby.put("age",20);//此处传入的是Integer而非int，20将会自动装箱为Integer
         noby.put("isMan",true);
-        noby.put("hoby","learn java");
+        noby.put("hobby","learn java");
 
-        noby.put("age",21);//当存在该键时，put方法为修改值
+        System.out.println("noby.put(\"age\",21) = " + noby.put("age", 21));//当存在该键时，put方法为修改值，返回的是被覆盖的值
 
         System.out.println(noby.get("name"));//获取值
 
         System.out.println(noby.size());//获取键值对长度
 
-        noby.remove("hoby");//删除键值对
+        System.out.println("noby.remove(\"hobby\") = " + noby.remove("hobby"));//删除键值对
 
-        System.out.println(noby.containsKey("hoby"));//是否包含该键
+        System.out.println(noby.containsKey("hobby"));//是否包含该键
 
         //endregion
 

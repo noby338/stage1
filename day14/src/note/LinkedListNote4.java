@@ -1,28 +1,24 @@
 package note;
 
-public class MyList {
+/**
+ * @Description 自定义实现单项链表集合
+ * @Author Noby
+ * @Date 2023/3/16 23:02
+ */
+public class LinkedListNote4 {
     public static void main(String[] args) {
         SingleList singleList = new SingleList();
-        SingleList singleList1 = new SingleList();
-        singleList.add(1);
-        singleList.add(2);
-        singleList.add(3);
-        singleList.add(4);
+        System.out.println("singleList.add(1) = " + singleList.add(1));
+        System.out.println("singleList.add(2) = " + singleList.add(2));
+        System.out.println("singleList.add(3) = " + singleList.add(3));
+        System.out.println("singleList.add(4) = " + singleList.add(4));
         System.out.println("singleList = " + singleList);
-        singleList.delete(2);
+        System.out.println("singleList.delete(2) = " + singleList.delete(2));
         System.out.println("singleList = " + singleList);
-
-
-        singleList1.add(10);
-        singleList1.add(20);
-        singleList1.add(30);
-        singleList1.add(40);
-        System.out.println("singleList1 = " + singleList1);
-        SingleList singleList2 = singleList.merge(singleList1);
-        System.out.println("singleList2 = " + singleList2);
-
+        System.out.println("singleList.size() = " + singleList.size());
         singleList.reverse();
-        System.out.println("singleList2 = " + singleList2);
+        System.out.println("singleList = " + singleList);
+
     }
 }
 
@@ -32,56 +28,63 @@ class SingleList {
     private int size; // 元素个数
 
     // 添加数据（20分）
-    public void add(int data) {
+    public boolean add(int data) {
+        boolean flag = false;
         Node newNode = new Node(data, null);
         if (size == 0) {
             head = newNode;
-        } else if (size == 1) {
-            head.next = newNode;
         } else {
-            Node thisNode = head;
+            Node lastNode = head;
             for (int i = 0; i < size - 1; i++) {
-                thisNode = thisNode.next;
+                lastNode = lastNode.next;
             }
-            thisNode.next = newNode;
+            lastNode.next = newNode;
         }
         size++;
+        flag = true;
+        return flag;
     }
 
     // 通过下标删除数据（20分）
-    public void delete(int index) {
-        if (index == 0) {
+    public Integer delete(int index) {
+        Node lastNode2 = head;
+        int data = 0;
+        if (index < 0 || index >= size) {
+            throw new NullPointerException();
+        } else if (index == 0) {
+            data = head.data;
             head = head.next;
         } else {
-            Node thisNode = head;
-            Node nextNode = head.next;
-            for (int i = 0; i < index; i++) {
-                nextNode = nextNode.next;
+            for (int i = 0; i < index - 1; i++) {
+                lastNode2 = lastNode2.next;
             }
-            if (index != 1) {
-                for (int i = 0; i < index - 1; i++) {
-                    thisNode = thisNode.next;
-                }
+            data = lastNode2.next.data;
+            if (index == size - 1) {
+                lastNode2.next = null;
+            } else {
+                lastNode2.next = lastNode2.next.next;
             }
-            thisNode.next = nextNode;
         }
+
         size--;
+        return data;
     }
 
     // 反转当前链表（20分）
     public void reverse() {
-        int[] ints = new int[this.size];
-        Node thisNode = this.head;
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = thisNode.data;
+        Node thisNode = head;
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = thisNode.data;
             thisNode = thisNode.next;
         }
 
-        thisNode = this.head;
-        for (int i = ints.length - 1; i >= 0; i--) {
-            thisNode.data = ints[i];
+        thisNode = head;
+        for (int i = 0; i < size; i++) {
+            thisNode.data = arr[size - i - 1];
             thisNode = thisNode.next;
         }
+
     }
 
     // 合并两个有序的链表，生成的新链表也是有序的（30分）
@@ -94,6 +97,11 @@ class SingleList {
             newList.add(thisNode.data);
         } while ((thisNode = thisNode.next) != null);
         return newList;
+    }
+
+
+    public int size() {
+        return this.size;
     }
 
     // toString方法完成单链表遍历输出（10分）
@@ -109,16 +117,13 @@ class SingleList {
     }
 
     // 节点内部类
-    public static class Node {
+    static class Node {
         public int data; // 数据
         public Node next; // 指向下一个节点
 
         public Node(int data, Node next) {
-            super();
             this.data = data;
             this.next = next;
         }
-
     }
-
 }
