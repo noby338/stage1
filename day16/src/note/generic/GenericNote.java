@@ -2,26 +2,31 @@ package note.generic;
 
 import java.util.ArrayList;
 
-public class GenericNote {//泛型
+/**
+ * @Description 泛型的基本使用
+ * @Author Noby
+ * @Date 2023/3/17 21:51
+ */
+public class GenericNote {
     public static void main(String[] args) {
-        /*
-         * 	泛型最大的两个作用：
-         * 		约束值的类型：在创建对象时只要是指定了类型，那么赋值的数据就必须是该类型及其子类型的数据
-         * 		自动结合上下文知道泛型是什么类型，自动知道可用调用哪些方法
-         *
-         * 		避免了把问题放到运行时，在编写代码时就直接报错
-         */
-
-        //region 泛型方法：使用了泛型的方法
-        concat("tow", 3);
-        //endregion
 
         //region 泛型类：使用了泛型的类
-        Box<String> box = new Box<>();//泛型类在创建对象时指定泛型的具体类型
-        box.data = "info";
-        Box box1 = new Box();//泛型类在创建时也可以不指定泛型的具体类型
-        box1.data = "info";
-        System.out.println(box1.data);
+        GenericClass<String> stringGenericClass = new GenericClass<>();
+        stringGenericClass.setVar("noby");
+        System.out.println("stringGenericClass.getVar() = " + stringGenericClass.getVar());
+        //endregion
+
+        //region 泛型接口的实现类：接口泛型已定义
+        new GenericInterfaceImpl1().methodInterface("noby");
+        //endregion
+
+        //region 泛型接口的实现类：接口泛型未定义
+        new GenericInterfaceImpl2<Integer>().methodInterface(2);
+        //endregion
+
+
+        //region 泛型方法：使用了该类没有声明的泛型的方法
+        concat("tow", 3);
         //endregion
 
         //region 泛型通配符
@@ -30,40 +35,96 @@ public class GenericNote {//泛型
 	    泛型通配符最常用的就是放在形参上接收不同类型的泛型对象
          */
         ArrayList<String> strings = new ArrayList<>();
-        ArrayList<Integer> integers = new ArrayList<>();
         ArrayList<Object> objects = new ArrayList<>();
         method(strings);
-        method1(integers);
-        method2(objects);
         method0(objects);
         //endregion
     }
 
-    private static void method2(ArrayList<? super String> list) {//可以存储String及其父类的数据类型
-        //泛型上界
+    /**
+     * 泛型运用在方法上时，如果所使用的泛型没有在类中声明，则需要在方法中声明
+     * 声明在返回值之前
+     *
+     * @param param
+     * @param param2
+     * @param <T1>
+     * @param <T2>
+     */
+    static <T1, T2> void concat(T1 param, T2 param2) {
+        System.out.println(param + "-" + param2);
     }
 
-    private static void method1(ArrayList<? extends Number> list) {//可以存储number及其子类的数据类型
-        //泛型下界
-    }
-
-    private static void method(ArrayList<?> list) {//可以存储任意数据类型
+    static void method0(ArrayList<Object> list) {//Object并不是表示任意数据类型，而是只表示Object
 
     }
 
-    private static void method0(ArrayList<Object> list) {//Object并不是表示任意数据类型，而是只表示Object
+    static void method(ArrayList<?> list) {//可以存储任意数据类型
 
-    }
-
-
-
-    static <T1,T2> void concat(T1 num1, T2 num2) {
-        System.out.println(num1 + "-" +num2);
     }
 }
 
-class Box<T> {//泛型类
-    T data;//指定该属性为泛型(数据类型由创建对象时确定)
+
+/**
+ * @Description 泛型运用在类上时，声明在类名之后
+ * 如果某泛型已经在类中声明，则不需要在方法中额外声明，否则需在方法中额外声明
+ * @Author Noby
+ * @Date 2023/3/18 1:13
+ */
+class GenericClass<E> {//定义一个泛型类
+    public E var;
+
+    public GenericClass() {
+    }
+
+    public GenericClass(E var) {
+        this.var = var;
+    }
+
+    public E getVar() {
+        return var;
+    }
+
+    public void setVar(E var) {
+        this.var = var;
+    }
 }
+
+/**
+ * @Description 泛型运用在接口中
+ * @Author Noby
+ * @Date 2023/3/18 1:15
+ */
+interface GenericInterface<E> {
+    void methodInterface(E e);
+}
+
+/**
+ * @Description 泛型运用在接口的实现类中，方式1，定义好接口的泛型
+ * @Author Noby
+ * @Date 2023/3/18 1:15
+ */
+class GenericInterfaceImpl1 implements GenericInterface<String> {//定义实现类的泛型的类型为字符串
+
+    @Override
+    public void methodInterface(String s) {
+        System.out.println("实现类1的方法执行" + s);
+    }
+}
+
+/**
+ * @Description 泛型运用在接口的实现类中，方式2，实例化实现类时定义泛型的类型
+ * @Author Noby
+ * @Date 2023/3/18 1:16
+ */
+class GenericInterfaceImpl2<E> implements GenericInterface<E> {//实现类的泛型由创建对象时定义
+
+    @Override
+    public void methodInterface(E e) {
+        System.out.println("实现类2的方法执行" + e);
+    }
+}
+
+
+
 
 

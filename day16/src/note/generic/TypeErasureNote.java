@@ -1,6 +1,11 @@
 package note.generic;
 
-public class TypeErasureNote {//泛型的类型擦除
+/**
+ * @Description 泛型的类型擦除
+ * @Author Noby
+ * @Date 2023/3/18 0:54
+ */
+public class TypeErasureNote {
     public static void main(String[] args) {
         Student<String> student = new Student<>();
     }
