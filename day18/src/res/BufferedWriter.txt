@@ -1,2 +1,0 @@
-buffereWriter
-this is newline

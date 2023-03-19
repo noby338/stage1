@@ -30,7 +30,7 @@ public class ThreadNote {
         //region 成员方法, 静态方法
         myThread.setName("支线程0");//设置线程名
         System.out.println(myThread.getName());//获取线程名
-        System.out.println("myThread.getPriority() = " + myThread.getPriority());//获取优先级，默认为5
+        System.out.println("myThread.getPriority() = " + myThread.getPriority());//获取优先级，默认为5，最高位10
         myThread.setPriority(1);//设置优先级(1——10)，优先级越大，抢占到CPU资源的概率大
         try {
             Thread.sleep(1000);//线程休眠，休眠当前运行的线程，休眠后没有抢占CPU资源的权限，时间结束后恢复权限

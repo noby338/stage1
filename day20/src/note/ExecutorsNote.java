@@ -1,7 +1,6 @@
 package note;
 
 import java.util.Date;
-import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,8 +22,6 @@ public class ExecutorsNote {
 //        myNewFixedThreadPool();
 //        myNewSingleThreadExecutor();
         myNewScheduledThreadPool();
-//        myTimer();
-
     }
 
     /**
@@ -37,6 +34,10 @@ public class ExecutorsNote {
         ExecutorService pool = Executors.newCachedThreadPool();
         MyRunnable4 myRunnable4 = new MyRunnable4();
 
+        /*
+        execute()方法用于提交一个Runnable任务到线程池中执行。它的作用是将一个任务交给线程池，由线程池中的线程来执行。
+        执行execute()方法后，线程池会选择一个空闲的线程来执行任务，如果没有空闲线程，则将任务放入任务队列等待执行。
+         */
         pool.execute(myRunnable4);
         pool.execute(myRunnable4);
         pool.execute(myRunnable4);
@@ -130,49 +131,7 @@ public class ExecutorsNote {
 
     }
 
-    /**
-     * Timer定时器
-     * <p>
-     * 是定时器线程池的单线程简化
-     * <p>
-     * Timer是单线程，处理多个任务按照顺序执行，存在延时与设置定时器的时间有出入。
-     * 可能因为其中的某个任务的异常使Timer线程死掉，从而影响后续任务执行。
-     */
-    static void myTimer() {
-        Timer timer = new Timer();
 
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName() + "执行AAA~~~" + new Date());
-
-            }
-        }, 0, 2000);
-
-
-        //此任务中的异常会导致Timer线程死掉，从而影响其他任务执行。
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName() + "执行BBB~~~" + new Date());
-                System.out.println(10 / 0);
-            }
-        }, 0, 2000);
-
-        //此任务中的延时会导致Timer线程中其他任务的不准时。
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName() + "执行CCC~~~" + new Date());
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, 0, 2000);
-    }
 }
 
 class MyRunnable4 implements Runnable {

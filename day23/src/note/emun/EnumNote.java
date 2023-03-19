@@ -1,5 +1,9 @@
 package note.emun;
-
+/**
+ * @Description 枚举的基本使用
+ * @Author Noby
+ * @Date 2023/3/19 17:41
+ */
 public class EnumNote {
     public static void main(String[] args) {
         MyColor red = MyColor.RED;

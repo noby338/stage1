@@ -1,6 +1,10 @@
 package note;
-
-public class TicketNote {//线程安全问题(售票)
+/**
+ * @Description 线程安全问题（售票）
+ * @Author Noby
+ * @Date 2023/3/19 0:35
+ */
+public class TicketNote {
 
     public static void main(String[] args) throws InterruptedException {
         TicketThread ticket = new TicketThread();
@@ -13,8 +17,8 @@ public class TicketNote {//线程安全问题(售票)
         ticket1.start();
         ticket2.start();
 
-        System.out.println();
         Thread.sleep(1000);
+        System.out.println();
 
         TicketRunnable ticketRunnable = new TicketRunnable();
         Thread thread = new Thread(ticketRunnable);

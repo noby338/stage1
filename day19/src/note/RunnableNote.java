@@ -8,12 +8,12 @@ package note;
  */
 public class RunnableNote {
     public static void main(String[] args) {
-        MyRunnable4 myRunnable2 = new MyRunnable4();
+        MyRunnable2 myRunnable2 = new MyRunnable2();
         Thread thread = new Thread(myRunnable2,"T1");
         thread.start();
 
-        MyRunnable4 myRunnable22 = new MyRunnable4();
-        Thread thread2 = new Thread(myRunnable22,"T1");
+        MyRunnable2 myRunnable22 = new MyRunnable2();
+        Thread thread2 = new Thread(myRunnable22,"T2");
         thread2.start();
 
     }
@@ -22,7 +22,7 @@ public class RunnableNote {
 class MyRunnable2 implements Runnable{
     @Override
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             System.out.println(Thread.currentThread().getName());
         }
     }

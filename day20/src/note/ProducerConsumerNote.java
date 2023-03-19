@@ -1,6 +1,10 @@
 package note;
-
-public class ProducerConsumerNote {//生产者消费者模式
+/**
+ * @Description 利用锁实现生产者消费者模式
+ * @Author Noby
+ * @Date 2023/3/19 1:12
+ */
+public class ProducerConsumerNote {
 
     public static void main(String[] args) {
         ProducerConsumer producerConsumer = new ProducerConsumer("汽车");
@@ -27,7 +31,7 @@ public class ProducerConsumerNote {//生产者消费者模式
     }
 }
 
-class ProducerConsumer {
+class ProducerConsumer{
     public String name;//商品的名字
     public int id = 1;//商品的编号
     public boolean isHaveProduct = false;//标记是否有商品

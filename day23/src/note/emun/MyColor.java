@@ -1,6 +1,11 @@
 package note.emun;
 
-enum MyColor {//枚举表示值
+/**
+ * @Description 枚举的定义
+ * @Author Noby
+ * @Date 2023/3/19 17:34
+ */
+enum MyColor {
     //常量：他们是当前枚举的对象 等同于：public static final MyColor RED = new MyColor("红色");
     RED("红色"), YELLOW("黄色"), BLUE("蓝色"), ORANGE("橘色");
     //属性：他们是当前枚举常量的属性

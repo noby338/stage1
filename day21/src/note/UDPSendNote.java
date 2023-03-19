@@ -3,9 +3,14 @@ package note;
 import java.io.IOException;
 import java.net.*;
 
-public class UDPSendNote {//数据报协议,发送端
+/**
+ * @Description UDP数据报协议,发送端
+ * @Author Noby
+ * @Date 2023/3/19 13:55
+ */
+public class UDPSendNote {
     public static void main(String[] args) throws IOException {
-        String info = "How are you?";
+        String info = "How are you?中文";
         //1、创建套接字
         DatagramSocket datagramSocket = new DatagramSocket();//DatagramSocket实现UDP协议
         //2、获取数据报

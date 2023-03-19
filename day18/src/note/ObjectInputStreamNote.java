@@ -1,24 +1,32 @@
 package note;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Set;
 
-public class ObjectInputStreamNote {//对象输入流(反序列化流：流转换为对象)
+/**
+ * @Description 对象输入流(反序列化流：流转换为对象)
+ * @Author Noby
+ * @Date 2023/3/18 23:15
+ */
+public class ObjectInputStreamNote {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //region 构造
         ObjectInputStream objectInputStream = new ObjectInputStream(
-                new FileInputStream("day18\\src\\res\\ObjectOutputStream.txt")
+                new FileInputStream("day18/src/res/ObjectOutputStream.txt")
         );
         //endregion
 
         //region readObject
-        HashSet<Person> person= (HashSet<Person>)objectInputStream.readObject();
-        Iterator<Person> iterator = person.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        Set<Person> person= (HashSet<Person>)objectInputStream.readObject();
+        for (Person value : person) {
+            System.out.println(value);
         }
         //endregion
+
+        objectInputStream.close();
 
     }
 }

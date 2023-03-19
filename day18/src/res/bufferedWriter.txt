@@ -1,0 +1,2 @@
+bufferedWriter中文
+this is newline
