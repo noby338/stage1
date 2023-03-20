@@ -3,17 +3,17 @@
 
 use stage1;
 drop table if exists student;
-create table student(
-                        id       int,-- 整型，四个字节
-                        name     varchar(10),-- 可变长字符串（字符串宽度小于等于10即可）
-                        gender   char(1),-- 不可变长字符串
-                        birthday date,-- date表示日期，tatetime表示日期和时间
-                        score    double(5, 2),-- 5表示数据的总长度，2表示小数点后面的位数
-                        email    varchar(64),
-                        tel      varchar(15),
-                        status   tinyint-- 小整型，1个字节
+create table student
+(
+    id       int,-- 整型，四个字节
+    name     varchar(10),-- 可变长字符串（字符串宽度小于等于10即可）
+    gender   char(1),-- 不可变长字符串
+    birthday date,-- date表示日期，tatetime表示日期和时间
+    score    double(5, 2),-- 5表示数据的总长度，2表示小数点后面的位数
+    email    varchar(64),
+    tel      varchar(15),
+    status   tinyint-- 小整型，1个字节
 );
-
 
 
 # 插入记录部分字段（value和values无区别）

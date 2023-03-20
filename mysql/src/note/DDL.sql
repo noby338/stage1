@@ -1,4 +1,4 @@
--- 数据库定义语言
+-- 数据库定义语言，基本操作
 -- 库的操作
 # 显示所有库
 show databases;
@@ -17,7 +17,8 @@ show tables;
 # 删除存在的表
 drop table if exists student;
 # 创建表
-create table student(
+create table student
+(
     id       int,-- 整型，四个字节
     name     varchar(10),-- 可变长字符串（字符串宽度小于等于10即可）
     gender   char(1),-- 不可变长字符串
@@ -36,13 +37,17 @@ alter table student rename person;
 # 修改字段名
 alter table person rename to student;
 # 添加字段
-alter table student add address varchar(20) after tel;
+alter table student
+    add address varchar(20) after tel;
 # 修改字段类型
-alter table student modify address varchar(30);
+alter table student
+    modify address varchar(30);
 # 修改字段名和字段类型
-alter table student change address addr varchar(50);
+alter table student
+    change address addr varchar(50);
 # 删除字段
-alter table student drop addr;
+alter table student
+    drop addr;
 # 删除原表，创建一张字段相同的无记录空表
 truncate student;
 # 删除表

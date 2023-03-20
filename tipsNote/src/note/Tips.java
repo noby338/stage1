@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
  */
 public class Tips {
     public static void main(String args[]) {
-        fn4();
+        fn3();
     }
 
     /**

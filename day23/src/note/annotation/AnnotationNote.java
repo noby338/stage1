@@ -27,7 +27,7 @@ public class AnnotationNote {
         //endregion
 
         //region 利用注解给对象赋值 方式2：注解写在属性上
-        DataSource dataSource2 = JdbcUtil.GetInstance2(DataSource.class);
+        DataSource2 dataSource2 = JdbcUtil.GetInstance2(DataSource2.class);
         System.out.println("dataSource2 = " + dataSource2);
         //endregion
 

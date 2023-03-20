@@ -1,5 +1,3 @@
-# day29
-
 * annotation
   * AnnotationNote 注解的使用演示
   * DataSource 使用该注解的类

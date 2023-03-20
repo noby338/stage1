@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
 
-public class PropertiesNote {
+/**
+ * @Description 自定义实现根据配置文件加载JDBC，定义增删改查方法
+ * @Author Noby
+ * @Date 2023/3/20 23:38
+ */
+public class MyJdbcNote {
     private static final String proPath;
     private static final Properties properties;
     private static final String driver;
@@ -18,7 +23,7 @@ public class PropertiesNote {
     static{
         properties = new Properties();
         //读取bin文件夹下文件的方法，(只要将文件放入src中，对应的bin文件夹也会出现该文件)
-        proPath = PropertiesNote.class.getClassLoader().getResource("db.properties").getPath();
+        proPath = MyJdbcNote.class.getClassLoader().getResource("db.properties").getPath();
         /*
         因为项目编写好之后是将bin目录进行打包，所以要得到bin文件夹下的配置文件
         Test.class   		获取到当前类的字节码对象,同时将src的文件复制到bin目录下

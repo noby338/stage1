@@ -1,4 +1,4 @@
-package note.annotation;
+package note.annotation.anno;
 
 import java.lang.annotation.*;
 
@@ -6,11 +6,11 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@interface Jdbc {
-    //注解中的属性
+public @interface Jdbc {
+    //注解中的属性，默认为public
     String driver() default "com.mysql.jdbc.Driver";//default表示注解中的默认值
 
-    String url() default "jdbc:mysql://localhost:3306/java87";
+    String url() default "jdbc:mysql://localhost:3306/stage1";
 
     String username() default "root";
 

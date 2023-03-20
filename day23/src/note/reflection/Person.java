@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 class Person {
     private String name;
     private int age;
-    private static int num_of_eyes;
+    private static int numOfEyes;
 
     public void show() {
         System.out.println(name + "," + age);

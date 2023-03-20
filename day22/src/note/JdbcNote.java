@@ -2,88 +2,157 @@ package note;
 
 import java.sql.*;
 
+/**
+ * @Description JDBC的基本使用
+ * JDBC默认为自动提交
+ * sql注入和防止方法(sql预编译，核心思路是将'字符转译为文本)
+ * @Author Noby
+ * @Date 2023/3/20 22:50
+ */
 public class JdbcNote {
     public static void main(String[] args) throws Exception {
-        //region jdbc基础用法
-        //1.注册驱动
+//        basisFn();
+//        transactionFn();
+//        executeQueryFn();
+        prepareStatementFn();
+    }
+
+    /**
+     * JDBC的基本使用
+     * <p>
+     * executeUpdate()可以执行DDL(数据库定义语言)和DML(数据库操作语言)
+     *
+     * @throws Exception
+     */
+    static void basisFn() throws Exception {
         /*
-        需要导入mysql-connector-java-5.1.20.jar
-        驱动的注册需要执行`DriverManager` 对象的 `registerDriver()` 方法
-        而在Driver类中的静态代码块中已经执行了该对象的方法进行了驱动的注册，那么我们只需要加载 `Driver` 类，就可以注册驱动。
-        而 `Class.forName("com.mysql.jdbc.Driver");` 就可以加载 `Driver` 类。
-        MySQL 5之后的驱动包，可以省略注册驱动的步骤
+        idea 将jar包放入模块下的libs文件夹，右击文件夹 Add as library
+         */
+        /*
+        该语句表示导入Driver类，jar包的Driver类中有静态代码块(静态代码块会在第一次导入类的时候执行)，
+        该代码块中调用了DriverManager.registerDriver(new Driver)静态方法，该方法可以注册一个驱动
+        Class是一个java的类(和class关键字不同)
          */
         Class.forName("com.mysql.jdbc.Driver");
-        //2.获取连接
         /*
-        jdbc:mysql://ip地址(域名):端口号/数据库名称?参数键值对1&参数键值对2…
-        如果连接的是本机mysql服务器，并且mysql服务默认端口是3306，则url可以简写为：jdbc:mysql:///数据库名称?参数键值对
-         */
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root", "123");
+        连接本地MySQL localhost：3306可省略
+        jdbc:mysql:为协议
+        ?后边拼接连接数据库时的参数
+        serverTimezone=UTC 表示设置时区，MySQL8里面要求必须设置时区，5里面可以省略
+        useUnicode=true 表示是否设置Java程序连接数据库的编码：(该编码不同于数据库编码和IDE编码)
+        characterEncoding=utf8 表示编码设置成utf-8
+        useServerPrepStmts=true 为开启mysql的预编译功能
+        */
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stage1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8", "root", "123");
+
         Statement statement = connection.createStatement();
-        int res = statement.executeUpdate("update student set name = 'kace' where id = 1");//返回值为受影响的行数，executeUpdate执行DML语句（增删改）
-        System.out.println("res:" + res);
-        //endregion
+        int count = statement.executeUpdate("update account set money = 1000 where id = 1");
+        System.out.println("count = " + count);
+        statement.close();
+        connection.close();
+    }
 
-        //region 事务
+
+    /**
+     * 事务管理
+     *
+     * @throws Exception
+     */
+    static void transactionFn() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stage1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8", "root", "123");
+        Statement statement = connection.createStatement();
+
+        int count = 0;
+        int count2 = 0;
         try {
-            // ============开启事务==========
-            connection.setAutoCommit(false);//手动提交
-            int count1 = statement.executeUpdate("update student set score = 123 where id = 1");
-            System.out.println("conunt1:" + count1);
-//            int i = 3 / 0;//出现问题
-            int count2 = statement.executeUpdate("update student set tel = 321 where id = 1");
-            System.out.println("conunt2:" + count2);
-
-            // ============提交事务==========
-            //程序运行到此处，说明没有出现任何问题，则需求提交事务
+            //设置手动提交(开启事务)
+            connection.setAutoCommit(false);
+            count = statement.executeUpdate("update account set money = 1000 where id = 1");
+            //模拟异常
+//            int i = 1/0;
+            count2 = statement.executeUpdate("update account set money = 3000 where id = 2");
+            //提交事务
             connection.commit();
-        } catch (Exception e) {
-            // ============回滚事务==========
-            //程序在出现异常时会执行到这个地方，此时就需要回滚事务
+        } catch (SQLException e) {
+            //事务回滚
             connection.rollback();
             e.printStackTrace();
         }
-        //endregion
 
-        //region resultSet结果集（DQL）
-        String sql = "select * from student";
-        ResultSet rs = statement.executeQuery(sql);//获取的为一个结果集对象（类似一个表格）
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            //下行代码相同
-//            int id = rs.getInt(1);//列的索引从1开始
-            String name = rs.getString("name");
-            Date birthday = rs.getDate("birthday");
-            System.out.print(id + " ");
-            System.out.print(name + " ");
-            System.out.println(birthday);
-            System.out.println("--------------");
-        }
-        //ResultSetMetaData元数据，可以获取ResultSet内部的底层数据
-        ResultSetMetaData metaData = rs.getMetaData();
-        //通过metaData获取表中的列名
-        for (int i = 1; i <= metaData.getColumnCount(); i++) {
-            System.out.println(metaData.getColumnLabel(i));
-        }
-        System.out.println("==============");
-        //endregion
+        System.out.println("count = " + count);
+        System.out.println("count2 = " + count2);
+        statement.close();
+        connection.close();
+    }
 
-        //region prepareStatement
+
+    /**
+     * executeQuery和resultSet的使用
+     * <p>
+     * executeQuery()可以执行DQL(数据库查询语言)
+     *
+     * @throws Exception
+     */
+    static void executeQueryFn() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stage1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8", "root", "123");
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from account");
+        while (resultSet.next()) {
+            //可以输入列的索引(1开始)
+            int id = resultSet.getInt(1);
+            //可以书写列名
+            String username = resultSet.getString("username");
+            int money = resultSet.getInt(3);
+            System.out.println("id = " + id + ", username = " + username + ", money = " + money);
+        }
+        statement.close();
+        connection.close();
+    }
+
+    /**
+     * prepareStatement接口的使用
+     * <p>
+     * 该类继承自Statement类，该类可以预编译sql，可以防止SQL注入
+     *
+     * @throws Exception
+     */
+    static void prepareStatementFn() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stage1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useServerPrepStmts=true", "root", "123");
+        Statement statement = connection.createStatement();
+        //region 模拟sql注入
+////        String name = "noby";
+////        String password = "123";
+//        String name = "aaaa";
+//        String password = "' or '1' = '1";
+//        ResultSet resultSet = statement.executeQuery("select * from user where name='" + name + "' and password='" + password + "'");
+        //endregion 模拟sql注入
+
         /*
-        预编译SQL与斌执行，可以预防sql注入存在的安全问题
-        SQL注入：通过操作输入来修改实现定义好的SQL语句，用以达到执行代码对服务器进行攻击的方法
+        mysql执行sql语句先要编译，才能执行
+        connection.prepareStatement(sql)已经将sql发送至mysql了，mysql将对sql进行编译，当传入参数的时候sql已经编译完成直接执行，
+        而statement.executeQuery(sql)会编译和运行同时执行，所以prepareStatement的效率更高
+        当开启预编译后，第二次执行sql参数改变而sql未改变时，会使用上一次的预编译结果，使得效率更高
+        数据库连接后跟参数 useServerPrepStmts=true 开启预编译
          */
-        PreparedStatement preparedStatement = connection.prepareStatement("update student set name = ? where id = ?");
-        preparedStatement.setString(1, "张飞");
-        preparedStatement.setInt(2, 4);
-        System.out.println("preparedStatement.executeUpdate() = " + preparedStatement.executeUpdate());
-        //endregion
-        connection.commit();
-
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from user where name=? and password=?");
+        preparedStatement.setString(1, "noby");
+        preparedStatement.setString(2, "123");
+        //模拟sql注入失败(PreparedStatement可以方式sql注入)
+        //PreparedStatement可以方式sql注入的原理在于会将"' or '1' = '1"1中的'进行转译为'文本(\')而非使用字符串拼接
+//        preparedStatement.setString(1, "aaaa");
+//        preparedStatement.setString(2, "' or '1' = '1");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            System.out.println("登录成功！！");
+        } else {
+            System.out.println("登陆失败！！");
+        }
+        preparedStatement.close();
         statement.close();
         connection.close();
     }
 
 }
-

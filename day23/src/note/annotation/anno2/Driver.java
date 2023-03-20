@@ -1,4 +1,4 @@
-package note.annotation;
+package note.annotation.anno2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Target(value = {ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@interface Driver {
+public @interface Driver {
     String value() default "";
 }
