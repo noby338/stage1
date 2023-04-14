@@ -5,9 +5,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 /**
- * @Description UDP数据报协议,接收端
- * @Author Noby
- * @Date 2023/3/19 13:56
+ * UDP数据报协议,接收端
+ * @author Noby
+ * @since 2023/3/19 13:56
  */
 public class UDPReceiveNote {
     public static void main(String[] args) throws IOException {

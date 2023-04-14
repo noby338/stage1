@@ -5,9 +5,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /**
- * @Description 反射的基本使用
- * @Author Noby
- * @Date 2023/3/21 0:32
+ * 反射的基本使用
+ * @author Noby
+ * @since 2023/3/21 0:32
  */
 public class ReflectionNote {
 

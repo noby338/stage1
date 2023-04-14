@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.function.Predicate;
 
 /**
- * @Description ArrayList的基本用法
- * @Author Noby
- * @Date 2023/3/16 19:01
+ * ArrayList的基本用法
+ * @author Noby
+ * @since 2023/3/16 19:01
  */
 public class ArrayListNote {
     public static void main(String[] args) {

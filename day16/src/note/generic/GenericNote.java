@@ -3,9 +3,9 @@ package note.generic;
 import java.util.ArrayList;
 
 /**
- * @Description 泛型的基本使用
- * @Author Noby
- * @Date 2023/3/17 21:51
+ * 泛型的基本使用
+ * @author Noby
+ * @since 2023/3/17 21:51
  */
 public class GenericNote {
     public static void main(String[] args) {
@@ -65,10 +65,10 @@ public class GenericNote {
 
 
 /**
- * @Description 泛型运用在类上时，声明在类名之后
+ * 泛型运用在类上时，声明在类名之后
  * 如果某泛型已经在类中声明，则不需要在方法中额外声明，否则需在方法中额外声明
- * @Author Noby
- * @Date 2023/3/18 1:13
+ * @author Noby
+ * @since 2023/3/18 1:13
  */
 class GenericClass<E> {//定义一个泛型类
     public E var;
@@ -90,18 +90,18 @@ class GenericClass<E> {//定义一个泛型类
 }
 
 /**
- * @Description 泛型运用在接口中
- * @Author Noby
- * @Date 2023/3/18 1:15
+ * 泛型运用在接口中
+ * @author Noby
+ * @since 2023/3/18 1:15
  */
 interface GenericInterface<E> {
     void methodInterface(E e);
 }
 
 /**
- * @Description 泛型运用在接口的实现类中，方式1，定义好接口的泛型
- * @Author Noby
- * @Date 2023/3/18 1:15
+ * 泛型运用在接口的实现类中，方式1，定义好接口的泛型
+ * @author Noby
+ * @since 2023/3/18 1:15
  */
 class GenericInterfaceImpl1 implements GenericInterface<String> {//定义实现类的泛型的类型为字符串
 
@@ -112,9 +112,9 @@ class GenericInterfaceImpl1 implements GenericInterface<String> {//定义实现�
 }
 
 /**
- * @Description 泛型运用在接口的实现类中，方式2，实例化实现类时定义泛型的类型
- * @Author Noby
- * @Date 2023/3/18 1:16
+ * 泛型运用在接口的实现类中，方式2，实例化实现类时定义泛型的类型
+ * @author Noby
+ * @since 2023/3/18 1:16
  */
 class GenericInterfaceImpl2<E> implements GenericInterface<E> {//实现类的泛型由创建对象时定义
 

@@ -1,11 +1,11 @@
 package note;
 /**
- * @Description 自定义异常的使用
+ * 自定义异常的使用
  * 自定义异常必须手动抛出，自动抛出的异常必须为系统自带的
  * 主动抛出：异常通过throw关键字被手动抛出
  * 被动抛出：程序中没有通过throw关键字自动抛出
- * @Author Noby
- * @Date 2023/3/18 18:40
+ * @author Noby
+ * @since 2023/3/18 18:40
  */
 public class CustomExceptionNote {
     public static void main(String[] args) {
@@ -24,9 +24,9 @@ public class CustomExceptionNote {
 }
 
 /**
- * @Description 自定义异常
- * @Author Noby
- * @Date 2023/3/18 19:47
+ * 自定义异常
+ * @author Noby
+ * @since 2023/3/18 19:47
  */
 class MyThrowable extends Exception {//继承Exception的自定义异常，常用该方法定义自定义异常
     public MyThrowable() {

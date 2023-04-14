@@ -35,7 +35,7 @@ select *
 from emp,
      dep;
 
--- 内连接查询
+-- 内连接查询，只返回两个表中公有的记录
 # 隐式内连接
 select *
 from emp,
@@ -50,7 +50,7 @@ from emp,
      dep
 where emp.dep_id = dep.id;
 
-# 给表 起别名
+# 给表起别名
 select t1.name,
        t1.gender,
        t2.name
@@ -74,22 +74,20 @@ from emp
 
 -- 外连接查询
 # outer可以省略
-# 左外连接
+# 左外连接，返回左表中全部数据
 select *
 from emp
          left join dep on emp.dep_id = dep.id;# 查询员工表所有数据和对应的部门信息，emp显示在前，显示emp外键为null的记录
 select *
 from dep
-         left join emp on emp.dep_id = dep.id;
-# 查询部门表所有数据和对应的员工信息，dep显示在前，显示dep外键为null的记录
-# 右外连接
+         left join emp on emp.dep_id = dep.id;# 查询部门表所有数据和对应的员工信息，dep显示在前，显示dep外键为null的记录
+# 右外连接，返回右表中全部数据
 select *
 from emp
          right join dep on emp.dep_id = dep.id;# 查询员工表所有数据和对应的部门信息，emp显示在前，显示dep外键为null的记录
 select *
 from dep
-         right join emp on emp.dep_id = dep.id;
-# 查询部门表所有数据和对应的员工信息，dep显示在前，显示emp外键为null的记录
+         right join emp on emp.dep_id = dep.id;# 查询部门表所有数据和对应的员工信息，dep显示在前，显示emp外键为null的记录
 
 
 -- 子查询
@@ -107,7 +105,7 @@ where dep_id in (select id from dep where name in ('财务部', '市场部'));
 
 
 # 查询入职日期是 '2011-11-11' 之后的员工信息和部门信息
-/*子查询语句结果是多行多列，子查询语句作为虚拟表*/
+/*子查询语句结果是多行多列/单行多列，子查询语句作为虚拟表*/
 select *
 from (select * from emp where hire_date > '2011-11-11') t1,
      dep

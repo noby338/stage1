@@ -1,4 +1,6 @@
+-- 数据库操作语言
 -- 事务
+
 -- 数据准备
 # 订单表
 drop table if exists `order`;

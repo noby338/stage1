@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.Properties;
 
 /**
- * @Description 自定义实现根据配置文件加载JDBC，定义增删改查方法
- * @Author Noby
- * @Date 2023/3/20 23:38
+ * 自定义实现根据配置文件加载JDBC，定义增删改查方法
+ * @author Noby
+ * @since 2023/3/20 23:38
  */
 public class MyJdbcNote {
     private static final String proPath;

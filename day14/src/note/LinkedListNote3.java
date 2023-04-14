@@ -1,9 +1,9 @@
 package note;
 
 /**
- * @Description 自定义实现LinkedList集合（双向链表集合）
- * @Author Noby
- * @Date 2023/3/16 22:01
+ * 自定义实现LinkedList集合（双向链表集合）
+ * @author Noby
+ * @since 2023/3/16 22:01
  */
 public class LinkedListNote3 {
 

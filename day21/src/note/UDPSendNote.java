@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.*;
 
 /**
- * @Description UDP数据报协议,发送端
- * @Author Noby
- * @Date 2023/3/19 13:55
+ * UDP数据报协议,发送端
+ * @author Noby
+ * @since 2023/3/19 13:55
  */
 public class UDPSendNote {
     public static void main(String[] args) throws IOException {

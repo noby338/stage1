@@ -1,9 +1,9 @@
 package note;
 
 /**
- * @Description 异常的基本使用
- * @Author Noby
- * @Date 2023/3/18 17:44
+ * 异常的基本使用
+ * @author Noby
+ * @since 2023/3/18 17:44
  */
 public class ExceptionNote {
     public static void main(String[] args) {
@@ -90,10 +90,10 @@ class A {
 }
 
 /**
- * @Description 异常在两个重写方法中的关系
+ * 异常在两个重写方法中的关系
  * 重写方法的异常范围小于等于被重写方法
- * @Author Noby
- * @Date 2023/3/18 17:45
+ * @author Noby
+ * @since 2023/3/18 17:45
  */
 class B extends A {
     @Override
@@ -102,9 +102,9 @@ class B extends A {
 }
 
 /**
- * @Description 类型转换异常
- * @Author Noby
- * @Date 2023/3/18 18:36
+ * 类型转换异常
+ * @author Noby
+ * @since 2023/3/18 18:36
  */
 class C extends A {
 }

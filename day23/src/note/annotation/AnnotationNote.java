@@ -1,7 +1,7 @@
 package note.annotation;
 
 /**
- * @Description 注解的基本使用
+ * 注解的基本使用
  *
  * 注解是一种用于元数据的Java特殊语法，可以用来给代码添加额外的信息和指令，例如在编译时生成额外的代码或者在运行时进行动态处理。
  * 自定义注解
@@ -16,8 +16,8 @@ package note.annotation;
  * 		runtime：可以保留到运行时，在运行时可以解析到该注解
  * `@Documented`：加上该注解表明自定义的注解可以出现doc文档中
  * `@Inherited`：继承，如果父类使用了自定的注解，那么子类也会将注解继承过去
- * @Author Noby
- * @Date 2023/3/19 17:47
+ * @author Noby
+ * @since 2023/3/19 17:47
  */
 public class AnnotationNote {
     public static void main(String[] args) {

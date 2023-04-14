@@ -1,6 +1,8 @@
 package note;
 
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  * java的使用技巧
@@ -10,9 +12,15 @@ import java.util.ResourceBundle;
  */
 public class Tips {
     public static void main(String args[]) {
-        fn3();
+//        fn3();
+        Scanner in = new Scanner(System.in);
+        // 注意 hasNext 和 hasNextLine 的区别
+        String string = in.nextLine();
+        String[] strArray = string.split(" ");
+        System.out.println("Arrays.toString(strArray) = " + Arrays.toString(strArray));
+        String str = strArray[strArray.length - 2];
+        System.out.println("str = " + str);
     }
-
     /**
      * 使用位运算交换两个数
      * <p>

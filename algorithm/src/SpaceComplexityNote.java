@@ -1,7 +1,7 @@
 /**
- * @Description 空间复杂度的计算方式
- * @Author Noby
- * @Date 2023/3/17
+ * 空间复杂度的计算方式
+ * @author Noby
+ * @since 2023/3/17
  */
 public class SpaceComplexityNote {
     public static void main(String[] args) {

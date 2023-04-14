@@ -3,9 +3,9 @@ package note;
 import java.io.File;
 import java.io.IOException;
 /**
- * @Description File对象的使用
- * @Author Noby
- * @Date 2023/3/18 21:36
+ * File对象的使用
+ * @author Noby
+ * @since 2023/3/18 21:36
  */
 public class FileNote {
     public static void main(String[] args) throws IOException {

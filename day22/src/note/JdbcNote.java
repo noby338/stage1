@@ -3,11 +3,13 @@ package note;
 import java.sql.*;
 
 /**
- * @Description JDBC的基本使用
+ * JDBC的基本使用
+ * <p>
  * JDBC默认为自动提交
  * sql注入和防止方法(sql预编译，核心思路是将'字符转译为文本)
- * @Author Noby
- * @Date 2023/3/20 22:50
+ *
+ * @author Noby
+ * @since 2023/3/20 22:50
  */
 public class JdbcNote {
     public static void main(String[] args) throws Exception {

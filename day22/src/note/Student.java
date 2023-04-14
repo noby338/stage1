@@ -1,8 +1,9 @@
 package note;
-/*
+
+/**
  * 实体类：与指定的表进行对应
- * 	指定属性：类型、名字与相关的字段进行对应，一般情况下表中几个字段实体类就有几个属性
- * 	指定属性的setter和getter
+ * 指定属性：类型、名字与相关的字段进行对应，一般情况下表中几个字段实体类就有几个属性
+ * 指定属性的setter和getter
  */
 public class Student {
     private int id;

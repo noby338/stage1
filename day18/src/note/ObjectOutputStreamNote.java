@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Description 对象输出流(序列化流：对象转换为流)
- * @Author Noby
- * @Date 2023/3/18 23:14
+ * 对象输出流(序列化流：对象转换为流)
+ * @author Noby
+ * @since 2023/3/18 23:14
  */
 public class ObjectOutputStreamNote {
     public static void main(String[] args) throws Exception {

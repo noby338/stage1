@@ -1,9 +1,9 @@
 package note.generic;
 
 /**
- * @Description 泛型的类型擦除
- * @Author Noby
- * @Date 2023/3/18 0:54
+ * 泛型的类型擦除
+ * @author Noby
+ * @since 2023/3/18 0:54
  */
 public class TypeErasureNote {
     public static void main(String[] args) {

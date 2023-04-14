@@ -1,8 +1,8 @@
 package note;
 /**
- * @Description 线程安全问题（售票）
- * @Author Noby
- * @Date 2023/3/19 0:35
+ * 线程安全问题（售票）
+ * @author Noby
+ * @since 2023/3/19 0:35
  */
 public class TicketNote {
 

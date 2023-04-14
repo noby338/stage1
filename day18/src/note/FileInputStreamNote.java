@@ -5,9 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * @Description 字节输入流的基本使用
- * @Author Noby
- * @Date 2023/3/18 22:15
+ * 字节输入流的基本使用
+ * @author Noby
+ * @since 2023/3/18 22:15
  */
 public class FileInputStreamNote {
     public static void main(String[] args) throws IOException {

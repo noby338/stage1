@@ -73,7 +73,7 @@ where name like '柳_';
 select name, hire_date
 from stu
 where hire_date like '%09%';
-# distinct可去除查询结果中的相同记录，本来有两个马斯克满足条件
+# distinct可去除查询结果中的相同记录（必须name, age, sex都相同），有两个马斯克满足条件
 select distinct name, age, sex
 from stu
 where age = 55;

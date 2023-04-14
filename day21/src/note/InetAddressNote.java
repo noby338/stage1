@@ -4,9 +4,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @Description IP地址、域名的使用
- * @Author Noby
- * @Date 2023/3/19 13:50
+ * IP地址、域名的使用
+ * @author Noby
+ * @since 2023/3/19 13:50
  */
 public class InetAddressNote {
     public static void main(String[] args) throws UnknownHostException {

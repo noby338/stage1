@@ -7,15 +7,16 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.util.Properties;
 
-/**
- * Druid数据库连接池
- *
- * DataSource为java的数据库连接池标准接口(Druid为Alibaba的三方开源实现)
- * 获取模块class根目录方法
- *
- * @author Noby
- * @since 2022/10/3
- */
+///**
+// * Druid数据库连接池
+// *
+// * DataSource为java的数据库连接池标准接口(Druid为Alibaba的三方开源实现)
+// * 获取模块class根目录方法
+// *
+// * @author Noby
+// * @since 2022/10/3
+// */
+
 public class ConnectionPoolNote {
     public static void main(String[] args) throws Exception{
         //1、导入Druid jar包

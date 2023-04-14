@@ -1,9 +1,9 @@
 package note;
 
 /**
- * @Description 自定义实现单项链表集合
- * @Author Noby
- * @Date 2023/3/16 23:02
+ * 自定义实现单项链表集合
+ * @author Noby
+ * @since 2023/3/16 23:02
  */
 public class LinkedListNote4 {
     public static void main(String[] args) {

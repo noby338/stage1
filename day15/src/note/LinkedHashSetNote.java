@@ -3,9 +3,9 @@ package note;
 import java.util.LinkedHashSet;
 
 /**
- * @Description LinkedHashSet的基本使用
- * @Author Noby
- * @Date 2023/3/17 0:09
+ * LinkedHashSet的基本使用
+ * @author Noby
+ * @since 2023/3/17 0:09
  */
 public class LinkedHashSetNote {
     public static void main(String[] args) {

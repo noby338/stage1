@@ -1,11 +1,11 @@
 package note;
 
 /**
- * @Description 死锁现象
+ * 死锁现象
  * 死锁产生的条件：多个线程争夺多个资源，并且因争夺资源相互等待
  * 在发生死锁的外面加上一把锁，可避免死锁的发生
- * @Author Noby
- * @Date 2023/3/19 1:12
+ * @author Noby
+ * @since 2023/3/19 1:12
  */
 public class DeadlockNote {
 

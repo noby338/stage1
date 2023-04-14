@@ -4,9 +4,9 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
- * @Description TCP数据报协议,发送端
- * @Author Noby
- * @Date 2023/3/19 13:56
+ * TCP数据报协议,发送端
+ * @author Noby
+ * @since 2023/3/19 13:56
  */
 public class TCPSendNote {
     public static void main(String[] args) throws Exception{

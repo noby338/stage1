@@ -3,9 +3,9 @@ package note;
 import java.io.Serializable;
 
 /**
- * @Description 用于序列化测试的类
- * @Author Noby
- * @Date 2023/3/18
+ * 用于序列化测试的类
+ * @author Noby
+ * @since 2023/3/18
  */
 public class Person implements Serializable {//实现序列化接口的类才可以序列化和反序列化
     /*

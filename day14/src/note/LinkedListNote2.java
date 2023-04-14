@@ -2,9 +2,9 @@ package note;
 
 import java.util.LinkedList;
 /**
- * @Description 实现队列和栈的数据结构
- * @Author Noby
- * @Date 2023/3/16 19:38
+ * 实现队列和栈的数据结构
+ * @author Noby
+ * @since 2023/3/16 19:38
  */
 public class LinkedListNote2 {
     public static void main(String[] args) {

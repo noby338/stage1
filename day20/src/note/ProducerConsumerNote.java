@@ -1,8 +1,8 @@
 package note;
 /**
- * @Description 利用锁实现生产者消费者模式
- * @Author Noby
- * @Date 2023/3/19 1:12
+ * 利用锁实现生产者消费者模式
+ * @author Noby
+ * @since 2023/3/19 1:12
  */
 public class ProducerConsumerNote {
 

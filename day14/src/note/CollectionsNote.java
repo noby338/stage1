@@ -3,9 +3,9 @@ package note;
 import java.util.ArrayList;
 import java.util.Collections;
 /**
- * @Description Collections工具类的使用
- * @Author Noby
- * @Date 2023/3/16 22:00
+ * Collections工具类的使用
+ * @author Noby
+ * @since 2023/3/16 22:00
  */
 public class CollectionsNote {
     public static void main(String[] args) {

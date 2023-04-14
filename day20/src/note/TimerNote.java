@@ -5,11 +5,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * @Description Timer定时器的基本使用
+ * Timer定时器的基本使用
  * Timer 是定时器线程池的单线程简化，处理多个任务按照顺序执行，存在延时与设置定时器的时间有出入。
  * 可能因为其中的某个任务的异常使Timer线程死掉，从而影响后续任务执行。
- * @Author Noby
- * @Date 2023/3/19
+ * @author Noby
+ * @since 2023/3/19
  */
 public class TimerNote {
     public static void main(String[] args) {

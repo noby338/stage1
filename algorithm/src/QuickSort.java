@@ -1,7 +1,7 @@
 /**
- * @Description 快速排序
- * @Author Noby
- * @Date 2023/3/15
+ * 快速排序
+ * @author Noby
+ * @since 2023/3/15
  */
 public class QuickSort {
     public static void quickSort(int[] arr, int left, int right) {

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description 泛型通配符的基本使用
+ * 泛型通配符的基本使用
  * 通配符可以用于限制泛型类型的范围
- * @Author Noby
- * @Date 2023/3/17
+ * @author Noby
+ * @since 2023/3/17
  */
 public class GenericWildcardNote {
 

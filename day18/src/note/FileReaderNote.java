@@ -4,9 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @Description 字符输入流
- * @Author Noby
- * @Date 2023/3/18 22:59
+ * 字符输入流
+ * @author Noby
+ * @since 2023/3/18 22:59
  */
 public class FileReaderNote {
     public static void main(String[] args) throws IOException {

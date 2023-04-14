@@ -3,9 +3,9 @@ package note;
 import java.io.FileInputStream;
 import java.io.IOException;
 /**
- * @Description 文件编码演示
- * @Author Noby
- * @Date 2023/3/18 21:31
+ * 文件编码演示
+ * @author Noby
+ * @since 2023/3/18 21:31
  */
 public class FileCodeNote {
     public static void main(String[] args) throws IOException {

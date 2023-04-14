@@ -3,9 +3,9 @@ package note;
 import java.util.LinkedList;
 
 /**
- * @Description LinkedList的基本用法
- * @Author Noby
- * @Date 2023/3/16 19:02
+ * LinkedList的基本用法
+ * @author Noby
+ * @since 2023/3/16 19:02
  */
 public class LinkedListNote {
     public static void main(String[] args) {
