@@ -1,40 +1,41 @@
 package note;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * 测试
- *
- * @author Noby
- * @since 2023/4/16 22:26
- */
-public class Test {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
-        String s = str.split(" ")[0];
-        String s2 = str.split(" ")[1];
-        System.out.println("s = " + s);
-        System.out.println("s2 = " + s2);
+        int num = Integer.parseInt(scanner.nextLine());
+        int[][] arr = new int[num][num];
+        for (int i = 0; i < arr.length; i++) {
+            String[] str = scanner.nextLine().split(" ");
+            for (int i1 = 0; i1 < str.length; i1++) {
+                arr[i][i1] = Integer.parseInt(str[i1]);
+            }
+        }
 
-        char[] chars = s.toCharArray();
-        char[] chars1 = s2.toCharArray();
-        int num = 0;
-        for (int i = 0; i < chars.length; i++) {
-            int num2 = 0;
-            for (int i1 = 0; i1 < chars1.length; i1++) {
-                try {
-                    if (chars[i+i1] == chars[i1]) {
-                        num2++;
-                    }
-                } catch (Exception e) {
+        ArrayList<Integer> integers = new ArrayList<>();
+        int total = 0;
+        int line = 0;
+        while (integers.size() != num) {
+            int min = arr[line][1];
+            int xm = 0;
+            int ym = 0;
+            for (int i1 = 0; i1 < arr[0].length; i1++) {
+                if (integers.contains(line)) {
+                    continue;
                 }
-                if (num2 == chars1.length) {
-                    num ++;
+                if ((arr[line][i1] < min && arr[line][i1] > 0)) {
+                    ym = i1;
                 }
             }
-            num ++;
+            total += arr[line][ym];
+            line = ym;
+            integers.add(line);
         }
-        System.out.println(num);
+        System.out.println(total);
+
+
     }
 }
